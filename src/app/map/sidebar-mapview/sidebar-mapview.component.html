@@ -1,0 +1,52 @@
+<div class="sidebar-content border-right">
+    <div class="brand">
+      <span>Rota 3D</span>
+    </div>
+    <div class="form">
+      <div class="form-group">
+        <label>Largura (mm):</label>
+        <input name="width" class="form-control" [(ngModel)]="mapOptions.width" (ngModelChange)="modelChange()" type="number" />
+      </div>
+      <div class="form-group">
+        <label>Altura (mm):</label>
+        <input name="height" class="form-control" [(ngModel)]="mapOptions.height" (ngModelChange)="modelChange()" type="number" />
+      </div>
+      <div class="form-group">
+        <label>DPI:</label>
+        <input name="dpi" class="form-control" [(ngModel)]="mapOptions.dpi" (ngModelChange)="modelChange()" type="number" />
+      </div>
+      <div class="form-group">
+        <label>Formato de Saída:</label>
+        <br>
+        <div class="inline-radio">
+          <label class="radio-inline">
+            <input type="radio" name="format"  value="png" [(ngModel)]="mapOptions.format" (ngModelChange)="modelChange()">PNG
+          </label>
+          <label class="radio-inline">
+            <input type="radio" name="format" value="pdf" [(ngModel)]="mapOptions.format" (ngModelChange)="modelChange()"> PDF
+          </label>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Estilo do mapa:</label>
+        <select class="form-control" name="style" [(ngModel)]="mapOptions.style" (ngModelChange)="modelChange()">
+            <option *ngFor="let style of mapStyles" [value]="style" >{{style.label}}</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Latitude:</label>
+        <input name="latitude" class="form-control" type="number"  [(ngModel)]="mapOptions.latitude" (ngModelChange)="modelChange()" />
+      </div>
+      <div class="form-group">
+        <label>Longitude:</label>
+        <input name="longitude" class="form-control" type="number" [(ngModel)]="mapOptions.longitude" (ngModelChange)="modelChange()" />
+      </div>
+      <div class="form-group">
+        <label>Arquivo Gpx:</label>
+        <input name="longitude" class="form-control-file" type="file" (change)="onFileChange($event)" />
+      </div>
+      <div class="form-group float-right">
+        <button type="button" class="btn btn-primary">Gerar Mapa</button>
+      </div>
+    </div>
+</div>
