@@ -11,8 +11,10 @@ export class MapBox {
       this.options = options;
       this.instance = new mapboxgl.Map({
         container: mapContainer,
-        style: this.options.style,
-        zoom: 13
+        center: [0, 0],
+        zoom: 0.5,
+        pitch: 0,
+        style: this.options.style.uri
       });
   }
 
